@@ -43,7 +43,7 @@ const VendorFood = () => {
             email: email
         };
         axios
-            .post('http://localhost:4000'  + "/user/findvendor", foodInfo)
+            .post("api/user/findvendor", foodInfo)
             .then((response) => {
                 setCanteen(response.data.shopName);
             })
@@ -52,7 +52,7 @@ const VendorFood = () => {
             });
 
         axios
-            .get('http://localhost:4000'  + "/food/fooditems")
+            .get("api/food/fooditems")
             .then((response) => {
                 setFoods(response.data);
             })
@@ -175,7 +175,7 @@ const VendorFood = () => {
         };
         console.log(foodInfo);
         axios
-            .post('http://localhost:4000'  + "/food/addfooditems", foodInfo)
+            .post("api/food/addfooditems", foodInfo)
             .then((response) => {
                 setAddform(false);
                 setReload(reload + 1);
@@ -238,7 +238,7 @@ const VendorFood = () => {
         };
         console.log(data);
         axios
-            .post('http://localhost:4000'  + "/food/updatefooditem", data)
+            .post("api/food/updatefooditem", data)
             .then((response) => {
                 console.log(response);
                 setReload(reload + 1);
@@ -256,7 +256,7 @@ const VendorFood = () => {
             _id: ID
         };
         axios
-            .post('http://localhost:4000'  + "/food/deletefooditem", data)
+            .post("api/food/deletefooditem", data)
             .then((response) => {
                 console.log(response);
                 setReload(reload + 1);

@@ -36,7 +36,7 @@ const Wallet = (props) => {
             email: email
         };
         axios
-            .post('http://localhost:4000'  + "/wallet/getbalance", walletInfo)
+            .post("api/wallet/getbalance", walletInfo)
             .then((response) => {
                 setBalance(response.data);
                 console.log(response.data);
@@ -57,7 +57,7 @@ const Wallet = (props) => {
             balance: Math.floor(value)
         };
         axios
-            .post('http://localhost:4000'  + "/wallet/addbalance", walletInfo)
+            .post("api/wallet/addbalance", walletInfo)
             .then((response) => {
                 setBalance(response.data);
                 console.log(response.data);

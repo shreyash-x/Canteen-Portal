@@ -53,7 +53,7 @@ const BuyerOrder = () => {
             email: email
         };
         axios
-            .post('http://localhost:4000'  + "/order/getorderbyemail", orderInfo)
+            .post("api/order/getorderbyemail", orderInfo)
             .then((response) => {
                 setOrders(response.data);
                 let rating_array = [];
@@ -92,7 +92,7 @@ const BuyerOrder = () => {
             status: "COMPLETED"
         };
         axios
-            .post('http://localhost:4000'  + "/order/updatestatus", orderInfo)
+            .post("api/order/updatestatus", orderInfo)
             .then((response) => {
                 console.log(response);
                 let rating_array = [...rating];
@@ -114,7 +114,7 @@ const BuyerOrder = () => {
         };
         console.log(orderInfo);
         axios
-            .post('http://localhost:4000'  + "/food/updaterating", orderInfo)
+            .post("api/food/updaterating", orderInfo)
             .then((response) => {
                 console.log(response);
                 let rating_array = [...rating];
@@ -124,7 +124,7 @@ const BuyerOrder = () => {
                     id: order._id
                 }
                 axios
-                    .post('http://localhost:4000'  + "/order/rated", info)
+                    .post("api/order/rated", info)
                     .then((response) => {
                         console.log(response);
                         handleClick();
@@ -314,7 +314,7 @@ const VendorOrder = () => {
             email: email
         };
         axios
-            .post('http://localhost:4000'  + "/user/findvendor", vendorInfo)
+            .post("api/user/findvendor", vendorInfo)
             .then(res => {
                 // console.log(res.data.shopName);
                 const vendorOrders = {
@@ -322,7 +322,7 @@ const VendorOrder = () => {
                 };
                 // console.log(vendorOrders);
                 axios
-                    .post('http://localhost:4000'  + "/order/getorderbyvendor", vendorOrders)
+                    .post("api/order/getorderbyvendor", vendorOrders)
                     .then(response => {
                         let status_array = [];
                         var cnt = 0;
@@ -368,7 +368,7 @@ const VendorOrder = () => {
             status: stat_names[status[ind] + 1]
         };
         axios
-            .post('http://localhost:4000'  + "/order/updatestatus", orderInfo)
+            .post("api/order/updatestatus", orderInfo)
             .then((response) => {
                 if (status[ind] === 0)
                     setCount(count + 1);
@@ -408,7 +408,7 @@ const VendorOrder = () => {
             status: "REJECTED"
         };
         axios
-            .post('http://localhost:4000'  + "/order/updatestatus", orderInfo)
+            .post("api/order/updatestatus", orderInfo)
             .then((response) => {
                 console.log(response);
                 let status_array = [...status];
@@ -436,7 +436,7 @@ const VendorOrder = () => {
                     balance: order.cost
                 };
                 axios
-                    .post('http://localhost:4000'  + "/wallet/addbalance", walletInfo)
+                    .post("api/wallet/addbalance", walletInfo)
                     .then((response) => {
                     })
                     .catch((error) => {

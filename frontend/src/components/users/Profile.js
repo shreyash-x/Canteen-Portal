@@ -45,7 +45,7 @@ const Profile = (props) => {
       email: email
     }
     if (localStorage.getItem("userType") === "Buyer") {
-      axios.post('http://localhost:4000'  + "/user/findbuyer", data)
+      axios.post("api/user/findbuyer", data)
         .then((res) => {
           setName(res.data.name);
           setEmail(res.data.email);
@@ -59,7 +59,7 @@ const Profile = (props) => {
         });
     }
     else if (localStorage.getItem("userType") === "Vendor") {
-      axios.post('http://localhost:4000'  + "/user/findvendor", data)
+      axios.post("api/user/findvendor", data)
         .then((res) => {
           setName(res.data.name);
           setEmail(res.data.email);
@@ -126,7 +126,7 @@ const Profile = (props) => {
       favourites: favourites
     }
 
-    axios.post('http://localhost:4000'  + "/user/updatebuyer", newBuyer)
+    axios.post("api/user/updatebuyer", newBuyer)
       .then((res) => {
         console.log(res);
         setEdit(true);
@@ -149,7 +149,7 @@ const Profile = (props) => {
       closeTime: closeTime
     }
 
-    axios.post('http://localhost:4000'  + "/user/updatevendor", newVendor)
+    axios.post("api/user/updatevendor", newVendor)
       .then((res) => {
         console.log(res);
         setEdit(true);

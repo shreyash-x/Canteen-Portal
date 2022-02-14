@@ -254,7 +254,7 @@ const BuyerFood = (props) => {
       email: email
     }
     axios
-      .post('http://localhost:4000'  + "/user/findbuyer", userInfo)
+      .post("api/user/findbuyer", userInfo)
       .then((response) => {
         setUser(response.data);
         // console.log(response.data);
@@ -264,7 +264,7 @@ const BuyerFood = (props) => {
       });
 
     axios
-      .get('http://localhost:4000'  + "/user/vendors")
+      .get("api/user/vendors")
       .then((response) => {
         setNumshops(response.data.length);
         let temp_dict = {};
@@ -285,7 +285,7 @@ const BuyerFood = (props) => {
       .finally(() => {
 
         axios
-          .get('http://localhost:4000'  + "/food/fooditems")
+          .get("api/food/fooditems")
           .then((response) => {
             setFoodItems(response.data);
             setDefaultFoodItems(response.data);
@@ -435,7 +435,7 @@ const BuyerFood = (props) => {
       email: email,
     };
     axios
-      .post('http://localhost:4000'  + "/user/addtofav", favInfo)
+      .post("api/user/addtofav", favInfo)
       .then((response) => {
       })
       .catch((error) => {
@@ -449,7 +449,7 @@ const BuyerFood = (props) => {
       email: email,
     };
     axios
-      .post('http://localhost:4000'  + "/user/removefromfav", favInfo)
+      .post("api/user/removefromfav", favInfo)
       .then((response) => {
       })
       .catch((error) => {
@@ -472,7 +472,7 @@ const BuyerFood = (props) => {
       age: user.age
     };
     axios
-      .post('http://localhost:4000'  + "/user/updatebuyer", userInfo)
+      .post("api/user/updatebuyer", userInfo)
       .then((response) => {
         // console.log(response.data);
       })
@@ -498,7 +498,7 @@ const BuyerFood = (props) => {
       age: user.age
     };
     axios
-      .post('http://localhost:4000'  + "/user/updatebuyer", userInfo)
+      .post("api/user/updatebuyer", userInfo)
       .then((response) => {
         // console.log(response.data);
       })
@@ -760,7 +760,7 @@ const BuyerFood = (props) => {
     };
     var flag = 0;
     axios
-      .post('http://localhost:4000'  + "/wallet/getbalance", walletInfo)
+      .post("api/wallet/getbalance", walletInfo)
       .then((response) => {
         if (response.data < total) {
           setErr_msg("Insufficient balance");
@@ -785,7 +785,7 @@ const BuyerFood = (props) => {
           };
           console.log(orderInfo);
           axios
-            .post('http://localhost:4000'  + "/order/placeorder", orderInfo)
+            .post("api/order/placeorder", orderInfo)
             .then((response) => {
               console.log(response.data);
               const walletInfo = {
@@ -793,7 +793,7 @@ const BuyerFood = (props) => {
                 balance: total
               };
               axios
-                .post('http://localhost:4000'  + "/wallet/subtractbalance", walletInfo)
+                .post("api/wallet/subtractbalance", walletInfo)
                 .then((response) => {
                   console.log(response.data);
                   document.getElementById('BalNav').innerHTML = response.data;

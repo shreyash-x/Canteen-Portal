@@ -47,7 +47,7 @@ const Login = (props) => {
             password: password
         };
 
-        axios.post('http://localhost:4000' + "/user/login", newUser)
+        axios.post("api/user/login", newUser)
             .then((response) => {
                 console.log(response.data);
                 setBuzz(false);

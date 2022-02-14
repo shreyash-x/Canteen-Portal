@@ -54,7 +54,7 @@ const Statistics = () => {
             email: email
         };
         axios
-            .post('http://localhost:4000'  + "/user/findvendor", vendorInfo)
+            .post("api/user/findvendor", vendorInfo)
             .then(res => {
 
                 const vendorOrders = {
@@ -63,12 +63,12 @@ const Statistics = () => {
                 setShopName(res.data.shopName);
 
                 axios
-                    .post('http://localhost:4000'  + "/order/getorderbyvendor", vendorOrders)
+                    .post("api/order/getorderbyvendor", vendorOrders)
                     .then(response => {
                         setOrders(response.data);
 
                         axios
-                            .get('http://localhost:4000'  + "/statistics/")
+                            .get("api/statistics/")
                             .then(response => {
                                 const ctx = document.getElementById('myChart');
                                 const myChart = new Chart(ctx, {

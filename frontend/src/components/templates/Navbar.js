@@ -23,7 +23,7 @@ const Navbar = () => {
         email: email
       };
       axios
-        .post('http://localhost:4000'  + "/wallet/getbalance", walletInfo)
+        .post("api/wallet/getbalance", walletInfo)
         .then((response) => {
           setBalance(response.data);
         })

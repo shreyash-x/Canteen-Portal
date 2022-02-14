@@ -103,7 +103,7 @@ const Register = (props) => {
     };
 
     axios
-      .post('http://localhost:4000'  + "/user/Buyerregister", newUser)
+      .post("api/user/Buyerregister", newUser)
       .then((response) => {
         alert("Created Buyer\t" + response.data.name);
         console.log(response.data);
@@ -131,7 +131,7 @@ const Register = (props) => {
     };
 
     axios
-      .post('http://localhost:4000'  + "/user/Vendorregister", newUser)
+      .post("api/user/Vendorregister", newUser)
       .then((response) => {
         alert("Created Vendor\t" + response.data.name);
         console.log(response.data);

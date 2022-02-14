@@ -3,9 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require('dotenv').config({ path: './process.env' });
-const PORT = process.env.PORT || 4000;
-const DB_NAME = "tutorial"
+const PORT = 8000;
 
 
 // routes
@@ -21,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connection to MongoDB
-mongoose.connect(process.env.MONGODB_URI + DB_NAME, { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://shreyash:ak0909@canteenportal.oujkv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once('open', function () {
     console.log("MongoDB database connection established successfully !");
