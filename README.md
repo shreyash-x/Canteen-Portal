@@ -21,3 +21,9 @@ This is a canteen portal built using MERN stack with all the basic functionaliti
 + Deployed the website with heroku and surge (Bonus)
     - frontend at: "https://canteen-portal.herokuapp.com/"
     - backend  at: "http://canteen-portal.surge.sh/"
+
+`cd frontend`
+`npm start`
+`cd ../backend`
+`npm start`
+- Access the website at localhost:8000
